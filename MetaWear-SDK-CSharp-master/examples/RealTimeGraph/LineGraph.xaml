@@ -1,0 +1,42 @@
+﻿<Page
+    x:Class="RealTimeGraph.LineGraph"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RealTimeGraph"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:oxy="using:OxyPlot.Windows"
+    mc:Ignorable="d">
+
+    <Page.DataContext>
+        <local:MainViewModel/>
+    </Page.DataContext>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*" />
+            <RowDefinition Height="850*" />
+            <RowDefinition Height="50*" />
+        </Grid.RowDefinitions>
+        <ToggleSwitch x:Name="streamSwitch" HorizontalAlignment="Stretch" Margin="0,6,455,0"  Toggled="streamSwitch_Toggled" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Grid.ColumnSpan="2">
+            <ToggleSwitch.RenderTransform>
+                <CompositeTransform SkewY="-0.039" TranslateY="-0.499"/>
+            </ToggleSwitch.RenderTransform>
+        </ToggleSwitch>
+        <Button x:Name="back" Content="Back" HorizontalAlignment="Stretch" VerticalAlignment="Top" Click="back_Click" Grid.Row="2" Grid.ColumnSpan="2" Margin="0,16.6,0,0"/>
+        <TextBox x:Name="LogBox" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" Text="TextBox" VerticalAlignment="Top" Width="1346" Height="649" Grid.ColumnSpan="2"/>
+        <Button x:Name="WSConnect" Content="Connect" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="821.375,46,0,0" Height="44" Width="193" Click="Button_Click" Grid.Column="1"/>
+        <TextBox x:Name="IPBox" HorizontalAlignment="Left" Margin="577.375,52,0,0" Text="" VerticalAlignment="Top" Width="224" PlaceholderText="ip" Grid.Column="1"/>
+        <TextBlock x:Name="MetaInfo" HorizontalAlignment="Left" Margin="183,30,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="364" Grid.ColumnSpan="2"/>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="Reconnect" Content="Rec" HorizontalAlignment="Left" Margin="438.375,50,0,0" VerticalAlignment="Top" Click="Reconnect_Click" Grid.Column="1"/>
+        <Button Content="Start / Stop CSV Recording" HorizontalAlignment="Left" Margin="183.4,50,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click_1" Grid.Column="1" Width="242"/>
+        <TextBox x:Name="State" HorizontalAlignment="Left" Margin="487.4,51,0,0" Grid.Row="1" Text="Idle .." VerticalAlignment="Top" Grid.Column="1" Width="202"/>
+        <TextBox x:Name="dataRollPitchYaw" Grid.Column="1" HorizontalAlignment="Left" Margin="499.4,121,0,0" Grid.Row="1" Text="TextBox" VerticalAlignment="Top" Width="408"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="183.4,105,0,0" Grid.Row="1" Text="Input FIle Name for Recording" TextWrapping="Wrap" VerticalAlignment="Top" Width="219"/>
+        <TextBox x:Name="filenamecsv" Grid.Column="1" HorizontalAlignment="Left" Margin="183.4,137,0,0" Grid.Row="1" Text="RRH1" VerticalAlignment="Top" Width="242"/>
+    </Grid>
+</Page>
